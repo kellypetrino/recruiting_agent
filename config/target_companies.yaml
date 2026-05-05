@@ -19,6 +19,11 @@ companies:
     board_id: anthropic
     notes: "Highest timing risk per job tracker. Surface aggressively."
 
+  - name: OpenAI
+    tier: 1
+    ats: ashby
+    board_id: openai
+
   - name: Cursor
     tier: 1
     ats: custom
@@ -41,11 +46,44 @@ companies:
     ats: lever
     board_id: mistral
 
+  - name: Cohere
+    tier: 2
+    ats: ashby
+    board_id: cohere
+
+  - name: Harvey
+    tier: 2
+    ats: ashby
+    board_id: harvey
+    notes: "AI for legal, NYC-based."
+
+  - name: Glean
+    tier: 2
+    ats: greenhouse
+    board_id: gleanwork
+    notes: "Enterprise AI search."
+
+  - name: Perplexity
+    tier: 2
+    ats: ashby
+    board_id: perplexity
+
+  - name: Notion
+    tier: 2
+    ats: ashby
+    board_id: notion
+
+  - name: Palantir
+    tier: 2
+    ats: lever
+    board_id: palantir
+    notes: "Big NYC presence, forward deployed roles are a natural fit."
+
   - name: Google
     tier: 2
     ats: custom
     board_id: TODO
-    notes: "Google uses careers.google.com — no standard ATS. TODO: parse their jobs API or set up alert emails."
+    notes: "careers.google.com — no standard ATS. Set up alert emails."
 
   - name: Meta
     tier: 2
@@ -53,15 +91,45 @@ companies:
     board_id: TODO
     notes: "Have HBS alum contact (Anny Jeung). metacareers.com — no standard ATS."
 
-  - name: OpenAI
-    tier: 2
-    ats: custom
-    board_id: TODO
-    notes: "openai.com/careers — does not appear to use Greenhouse/Lever/Ashby. Check for an unofficial API or set up alert email."
-
   # ---------- Tier 3 ----------
-  # TODO: populate remaining companies from Kelly_Petrino_Job_Tracker_April2026.xlsx
-  # Candidates: Cohere, Perplexity, Harvey, Glean, Notion, Intercom, Replit, Character.ai, xAI, Palantir
+  - name: Replit
+    tier: 3
+    ats: ashby
+    board_id: replit
+
+  - name: Ramp
+    tier: 3
+    ats: ashby
+    board_id: ramp
+    notes: "Fintech AI, NYC HQ."
+
+  - name: Intercom
+    tier: 3
+    ats: greenhouse
+    board_id: intercom
+    notes: "AI customer support."
+
+  - name: Airtable
+    tier: 3
+    ats: greenhouse
+    board_id: airtable
+
+  - name: Datadog
+    tier: 3
+    ats: greenhouse
+    board_id: datadog
+    notes: "Strong PM hiring, NYC HQ."
+
+  - name: Character.ai
+    tier: 3
+    ats: ashby
+    board_id: character
+
+  - name: Runway
+    tier: 3
+    ats: ashby
+    board_id: runway
+    notes: "AI video, NYC-based."
 
 # Search filters applied across all sources at the rule-based pre-filter stage.
 filters:

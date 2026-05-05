@@ -27,7 +27,8 @@ def fetch_jobs(board_id: str, company: str, client: httpx.Client) -> list[JobPos
     response.raise_for_status()
 
     data = response.json()
-    raw_jobs = data.get("jobPostings", [])
+    # Ashby returns 'jobPostings' on older boards and 'jobs' on newer ones
+    raw_jobs = data.get("jobPostings") or data.get("jobs", [])
     log.info("ashby.fetched", board_id=board_id, count=len(raw_jobs))
 
     postings = []
