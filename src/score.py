@@ -28,16 +28,24 @@ She is targeting post-MBA level roles (APM, PM, Senior PM) — not Director, VP,
 
 Your job: read a job posting and score its fit for Kelly on a 0–10 scale.
 
+EXPERIENCE LEVEL GUIDANCE (Kelly has ~3-5 years pre-MBA experience):
+  - Ideal: roles asking for 3–5 years, or "MBA equivalent", or "post-MBA"
+  - Acceptable: roles asking for 2–6 years (slight mismatch either way is fine)
+  - Penalize: roles explicitly requiring 6+ years (drop 2 points)
+  - Hard reject: roles explicitly requiring 8+ years (score ≤ 3)
+  - If no experience requirement is stated, don't penalize — assume it's fine
+
 SCORING GUIDE (use these anchors):
   9–10: Near-perfect fit. AI-focused PM or GTM role, NYC or remote, right level, \
-        company on her target list, description matches her background.
+        3–5 year experience range, company on her target list.
         Example: "Product Manager, Foundation Models – New York" at Anthropic.
   7–8:  Strong fit. AI-adjacent PM/GTM, right location, right level, \
         but maybe not pure AI or not a top-tier target company.
         Example: "Senior PM, Enterprise" at a well-known SaaS company with clear AI roadmap.
   5–6:  Possible fit. PM role but not AI-focused, or right domain but wrong location, \
-        or level is ambiguous.
-  3–4:  Weak fit. PM role at a non-AI company, or AI role that's clearly engineering-not-PM.
+        or experience requirement is 6–7 years (slightly senior), or level is ambiguous.
+  3–4:  Weak fit. PM role at a non-AI company, requires 8+ years, \
+        or AI role that's clearly engineering-not-PM.
   1–2:  Poor fit. Mostly irrelevant — sales, ops, or deeply technical roles mislabeled as PM.
   0:    No fit. Completely wrong function, seniority, or geography.
 
