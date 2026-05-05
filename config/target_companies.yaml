@@ -1,0 +1,95 @@
+# Target companies for the job-scraping agent.
+#
+# Tier 1 = highest priority, check daily, surface aggressively.
+# Tier 2 = strong interest, check daily, normal scoring.
+# Tier 3 = opportunistic, check daily, only surface if score is high.
+#
+# ats: which provider hosts the company's job board. One of:
+#   greenhouse | lever | ashby | workday | custom
+# board_id: the company's slug on that ATS.
+#   Greenhouse: boards-api.greenhouse.io/v1/boards/{board_id}/jobs
+#   Lever:      api.lever.co/v0/postings/{board_id}
+#   Ashby:      api.ashbyhq.com/posting-api/job-board/{board_id}
+
+companies:
+  # ---------- Tier 1 ----------
+  - name: Anthropic
+    tier: 1
+    ats: greenhouse
+    board_id: anthropic
+    notes: "Highest timing risk per job tracker. Surface aggressively."
+
+  - name: Cursor
+    tier: 1
+    ats: custom
+    board_id: TODO
+    notes: "Have warm contact (Zoë Barnswell, Enterprise GTM). Tailored resume exists. Careers page: cursor.com/careers — verify ATS."
+
+  # ---------- Tier 2 ----------
+  - name: Figma
+    tier: 2
+    ats: greenhouse
+    board_id: figma
+
+  - name: Scale AI
+    tier: 2
+    ats: greenhouse
+    board_id: scaleai
+
+  - name: Mistral
+    tier: 2
+    ats: lever
+    board_id: mistral
+
+  - name: Google
+    tier: 2
+    ats: custom
+    board_id: TODO
+    notes: "Google uses careers.google.com — no standard ATS. TODO: parse their jobs API or set up alert emails."
+
+  - name: Meta
+    tier: 2
+    ats: custom
+    board_id: TODO
+    notes: "Have HBS alum contact (Anny Jeung). metacareers.com — no standard ATS."
+
+  - name: OpenAI
+    tier: 2
+    ats: custom
+    board_id: TODO
+    notes: "openai.com/careers — does not appear to use Greenhouse/Lever/Ashby. Check for an unofficial API or set up alert email."
+
+  # ---------- Tier 3 ----------
+  # TODO: populate remaining companies from Kelly_Petrino_Job_Tracker_April2026.xlsx
+  # Candidates: Cohere, Perplexity, Harvey, Glean, Notion, Intercom, Replit, Character.ai, xAI, Palantir
+
+# Search filters applied across all sources at the rule-based pre-filter stage.
+filters:
+  title_keywords_include:
+    - "product manager"
+    - "product"
+    - "PM"
+    - "GTM"
+    - "go-to-market"
+    - "deployment"
+    - "forward deployed"
+    - "solutions"
+    - "applied"
+    - "technical program"
+  title_keywords_exclude:
+    - "director"
+    - "VP"
+    - "vice president"
+    - "head of"
+    - "principal"
+    - "intern"
+    - "junior"
+  locations_include:
+    - "new york"
+    - "nyc"
+    - "ny"
+    - "remote"
+    - "remote - us"
+    - "remote (us)"
+    - "united states"
+  max_age_days: 14
