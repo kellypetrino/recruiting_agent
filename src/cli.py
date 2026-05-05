@@ -74,6 +74,25 @@ def cmd_score(args: argparse.Namespace) -> None:
         log.warning("cli.score.had_errors", errors=stats["errors"])
 
 
+def cmd_digest(args: argparse.Namespace) -> None:
+    """Render and send the daily email digest."""
+    from src.digest import run_digest
+
+    log.info("cli.digest.start", all_time=args.all_time, preview=args.preview)
+
+    if args.preview:
+        from src.digest import fetch_all_scored_jobs, fetch_digest_jobs, render_html, render_text
+        if args.all_time:
+            tier1, tier2 = fetch_all_scored_jobs()
+        else:
+            tier1, tier2 = fetch_digest_jobs(since_days=1)
+        print(render_text(tier1, tier2))
+        return
+
+    stats = run_digest(all_time=args.all_time)
+    print(json.dumps(stats, indent=2))
+
+
 def cmd_dump(args: argparse.Namespace) -> None:
     """Dump jobs to stdout as JSON lines. Use --scored to show only scored jobs."""
     from src.db import Job, SessionLocal, init_db
@@ -117,6 +136,10 @@ def main() -> None:
     score_p = sub.add_parser("score", help="Run Stage 2 LLM scoring on filtered jobs")
     score_p.add_argument("--dry-run", action="store_true", help="Score but don't write to DB")
 
+    digest_p = sub.add_parser("digest", help="Send daily email digest via Resend")
+    digest_p.add_argument("--all-time", action="store_true", help="Include all scored jobs, not just today's")
+    digest_p.add_argument("--preview", action="store_true", help="Print digest to stdout instead of sending")
+
     dump_p = sub.add_parser("dump", help="Dump jobs to stdout as JSON lines")
     dump_group = dump_p.add_mutually_exclusive_group()
     dump_group.add_argument("--scored", action="store_true", help="Only scored jobs, sorted by score desc")
@@ -127,6 +150,7 @@ def main() -> None:
         "ingest": cmd_ingest,
         "filter": cmd_filter,
         "score": cmd_score,
+        "digest": cmd_digest,
         "dump": cmd_dump,
     }[args.command](args)
 
